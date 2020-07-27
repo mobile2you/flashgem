@@ -1,10 +1,10 @@
-gem build m2y_matera.gemspec
-gem install m2y_matera-0.0.1.gem
+gem build m2y_flash.gemspec
+gem install m2y_flash-0.0.1.gem
 
 
-# M2yMatera
+# M2yFlash
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/m2y_matera`. To experiment with that code, run `bin/console` for an interactive prompt.
+Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/m2y_flash`. To experiment with that code, run `bin/console` for an interactive prompt.
 
 TODO: Delete this and the text above, and describe your gem
 
@@ -13,7 +13,7 @@ TODO: Delete this and the text above, and describe your gem
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'm2y_matera'
+gem 'm2y_flash'
 ```
 
 And then execute:
@@ -22,11 +22,17 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install m2y_matera
+    $ gem install m2y_flash
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+# config/initializers/flash.rb
+M2yFlash.configure do |config|
+  config.api_server_url  = 'http://...'
+  config.api_server_token = 'TOKEN'
+end
+```
 
 ## Development
 
@@ -36,7 +42,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/m2y_matera. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/m2y_flash. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -44,4 +50,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the M2yMatera project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/m2y_matera/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the M2yFlash project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/m2y_flash/blob/master/CODE_OF_CONDUCT.md).

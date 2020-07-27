@@ -1,16 +1,16 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "m2y_matera/version"
+require "m2y_flash/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "m2y_matera"
-  spec.version       = M2yMatera::VERSION
+  spec.name          = "m2y_flash"
+  spec.version       = M2yFlash::VERSION
   spec.authors       = ["Caio Lopes"]
   spec.email         = ["caio.lopes@mobile2you.com.br"]
 
-  spec.summary       = %q{Matera API Gem}
-  spec.description   = %q{Matera API Gem}
+  spec.summary       = %q{Flash API Gem}
+  spec.description   = %q{Flash API Gem}
   spec.homepage      = "http://www.mobile2you.com.br"
   spec.license       = "MIT"
 
