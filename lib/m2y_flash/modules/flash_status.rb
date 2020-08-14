@@ -2,15 +2,32 @@ module M2yFlash
 
 	class FlashStatus 
 
-		def self.getStatus(client_id, ctt_id)
-			auth = M2yFlash.configuration.api_server_token
-      		url = "#{M2yFlash.configuration.api_server_url}#{STATUS_PATH}"
-      		puts url
-      		HTTParty.post(url, 
-      			headers: { 'Content-type' => 'application/json',
-      				'Accept' => "application/json",
-      				'Authorization' => auth }, 
-      			body: { clienteId: client_id, cttId: [ctt_id] }.to_json )
+            def self.getToken
+                  url = "#{M2yFlash.configuration.api_server_url}#{TOKEN_PATH}"
+                  auth = M2yFlash.configuration.api_server_token
+                  login = M2yFlash.configuration.api_server_username
+                  password = M2yFlash.configuration.api_server_password
+                  req = HTTParty.post(url, headers: { 'Content-type' => 'application/json', 'Authorization' => auth }, body: {login: login , senha: password }.to_json)
+                  response = { status: req.code, content: req.parsed_response}
+                  content = response[:content]
+                  if response[:status] == 200
+                    content['access_token']
+                  else
+                    nil
+                  end
+            end
+
+
+
+
+		def self.getStatus(client_id, ctt_id, numCli)
+			auth = getToken
+                  if auth.nil?
+                        nil
+                  else
+            		url = "#{M2yFlash.configuration.api_server_url}#{STATUS_PATH}"
+                        req = HTTParty.post(url, :verify => false, headers: { 'Content-type' => 'application/json', 'Authorization' => auth }, body: { clienteId: client_id, cttId: [ctt_id], numCli: [numCli] }.to_json )
+                  end
 		end
 
 	end
