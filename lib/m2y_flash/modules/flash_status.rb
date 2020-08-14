@@ -20,11 +20,13 @@ module M2yFlash
 
 
 
-		def self.getStatus(client_id, ctt_id, numCli)
+		def self.getStatus(numCli)
 			auth = getToken
                   if auth.nil?
                         nil
                   else
+                        client_id = M2yFlash.configuration.api_server_client
+                        ctt_id = M2yFlash.configuration.api_server_contract
             		url = "#{M2yFlash.configuration.api_server_url}#{STATUS_PATH}"
                         req = HTTParty.post(url, :verify => false, headers: { 'Content-type' => 'application/json', 'Authorization' => auth }, body: { clienteId: client_id, cttId: [ctt_id], numCli: [numCli] }.to_json )
                   end
